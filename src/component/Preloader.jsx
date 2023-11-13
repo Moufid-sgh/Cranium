@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
+
 const Preloader = () => {
 
     const progressBar = useRef();
@@ -14,21 +15,19 @@ const Preloader = () => {
             
             const tl = gsap.timeline();
 
-              tl.to(progressBar.current, { duration: 1, width: "50px", ease: "power1.inOut" })
-                .to(progressBar.current, { duration: 0.4, width: "280px", ease: "power1.inOut" })
-                .to(progressBar.current, { duration: 1, width: "50px", ease: "power1.inOut" })
-                .to(progressBar.current, { duration: 0.4, width: "280px", ease: "power1.inOut" })
-                .to(progressBar.current, { duration: 1, width: "50px", ease: "power1.inOut" })
-                .to(progressBar.current, { duration: 0.6, width: "100vw", ease: "power1.inOut" })
+              tl.to(progressBar.current, { duration: 1, width: "50px", ease: "sine.out" })
+                .to(progressBar.current, { duration: 0.4, width: "280px", ease: "sine.out" })
+                .to(progressBar.current, { duration: 1, width: "50px", ease: "sine.out" })
+                .to(progressBar.current, { duration: 0.4, width: "280px", ease: "sine.out" })
+                .to(progressBar.current, { duration: 1, width: "50px", ease: "sine.out" })
+                .to(progressBar.current, { duration: 0.6, width: "100vw", ease: "sine.out" })
                 .to(nameRef.current, {duration: 0.2, opacity: 0})
                 
               gsap.to(higherSection.current, {duration: 1, delay: 4.5, translateY: "-400px"})
               gsap.to(lowerSection.current, {duration: 1, delay: 4.5, translateY: "400px"})
         })
 
-        return () => {
-            ctx.revert();
-        }
+        return () => ctx.revert();
 
     }, []);
 

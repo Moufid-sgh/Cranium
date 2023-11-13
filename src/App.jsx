@@ -1,26 +1,54 @@
+import { useEffect } from "react";
 import Preloader from "./component/Preloader";
-import Skull from "./component/Skull";
+import Lenis from '@studio-freight/lenis';
+import Hero from "./component/Hero";
+import ModelSection from "./component/ModelSection";
 
 
 
 function App() {
 
+
+  //---smooth scroll-----------------------//
+  useEffect(() => {
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+      ScrollTrigger.update()
+    }
+    requestAnimationFrame(raf)
+
+  }, []);
+
+
+
   return (
-    <main>
+    <main className="mx-4 md:mx-8 lg:mx-16">
+
       <Preloader />
-      <div className="flex items-center justify-around h-screen">
-        <p className="text-4xl tracking-wide font-bold w-1/2 leading-[53px]">
-          Explore my creative sanctuary, where I use animal skulls as my medium to reshape the essence of nature
-        </p> 
-        {/* <p className="text-4xl tracking-wide font-bold w-1/2 leading-[50px]">
-          A unique decor that merges craftsmanship with nature, as we transform relics into stunning works of art. 
-        </p> 
-        <p className="text-4xl tracking-wide font-bold w-1/2 leading-[50px]">
-          Embrace the beauty of reimagined wildlife and witness the magic of animal resurrection through my masterpieces.
-        </p>  */}
-        
-        <Skull />
-      </div>
+
+      <nav className="flex items-center justify-between h-20">
+        <h3 className="tracking-wider text-xl font-bold">Cranium</h3>
+        <ul className="flex justify-around border md:w-[35%] lg:w-[22%]  tracking-wide">
+          <li className="cursor-pointer border border-[#090909] py-0.5 px-4 rounded-3xl">Model</li>
+          <li className="cursor-pointer border border-[#090909] py-0.5 px-4 rounded-3xl">Contact</li>
+        </ul>
+      </nav>
+
+    <Hero />
+
+    <div id="box1" className="flex items-center justify-center">
+      <ModelSection />
+    </div>
+    
+
+
     </main>
   )
 }
