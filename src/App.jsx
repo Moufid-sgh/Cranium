@@ -1,8 +1,9 @@
+import React from 'react';
 import { useEffect } from "react";
 import Preloader from "./component/Preloader";
-import Lenis from '@studio-freight/lenis';
 import Hero from "./component/Hero";
 import ModelSection from "./component/ModelSection";
+import { SmoothScroll } from "./component/Functions/SmoothScroll";
 
 
 
@@ -12,26 +13,15 @@ function App() {
   //---smooth scroll-----------------------//
   useEffect(() => {
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-    })
-
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-      ScrollTrigger.update()
-    }
-    requestAnimationFrame(raf)
+    SmoothScroll()
 
   }, []);
 
 
-
   return (
-    <main className="mx-4 md:mx-8 lg:mx-16">
+    <main className="mx-2 md:mx-8 lg:mx-16">
 
-      <Preloader />
+      {/* <Preloader /> */}
 
       <nav className="flex items-center justify-between h-20">
         <h3 className="tracking-wider text-xl font-bold">Cranium</h3>

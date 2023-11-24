@@ -7,7 +7,7 @@ export default function Skull() {
 
   function Loader() {
     const { progress } = useProgress()
-    return <Html center className='text-[#0e7490]'>{progress.toFixed(0)}% </Html>
+    return <Html center>{progress.toFixed(0)}% </Html>
   }
 
   return (
