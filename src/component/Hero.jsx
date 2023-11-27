@@ -1,10 +1,13 @@
 import React from 'react';
 import { useEffect, useRef } from "react";
 import Skull from "./Skull";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ErrorBoundary from './ErrorBoundary';
+
 import { MobileTextAnim } from "./Functions/MobileTextAnim";
 import { DesktopTextAnim } from "./Functions/DesktopTextAnim";
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -102,7 +105,9 @@ function Hero() {
             </div>
 
             <div className="flex items-center justify-center order-first md:order-last md:w-[40%] lg:w-1/2 h-[40vh] md:h-[80vh] mt-4 md:mt-0" ref={skullRef}>
-                <Skull />
+                <ErrorBoundary fallback={<p>⚠️Something went wrong</p>}>
+                    <Skull />
+                </ErrorBoundary>
             </div>
 
         </div>

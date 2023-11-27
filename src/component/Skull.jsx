@@ -28,7 +28,7 @@ export default function Skull() {
           <Environment preset='city' />
           <ContactShadows position={[0, -2.3, 0]}  opacity={0.5} scale={11} blur={2.5} far={12} />
         </Suspense>
-        
+
       </Canvas>
     </div>
   )

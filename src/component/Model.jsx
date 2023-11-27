@@ -4,6 +4,7 @@ import artak from "/artak.jpg";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ModelDetails from "./ModelDetails";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -44,8 +45,9 @@ function Model() {
 
   
 
-  return (
-    <div className='lg:w-[90%] h-[620px] sm:h-[720px]  lg:h-[470px]'>
+  return ( 
+  <>
+    <div className='lg:w-[90%] h-[620px] sm:h-[720px] lg:h-[470px]'>
 
       <div className='model h-[85%] w-full relative overflow-hidden invisible cursor-pointer' ref={containerRef}>
         <img src={artak} alt='skull' className='object-cover object-center w-full h-full absolute top-0 left-0 origin-left' ref={imgRef} />
@@ -57,6 +59,9 @@ function Model() {
       </div>
 
     </div>
+
+    {/* <ModelDetails /> */}
+    </>
   )
 }
 

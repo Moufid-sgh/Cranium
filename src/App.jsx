@@ -18,6 +18,8 @@ function App() {
   }, []);
 
 
+
+
   return (
     <main className="mx-2 md:mx-8 lg:mx-16">
 
@@ -31,13 +33,11 @@ function App() {
         </ul>
       </nav>
 
-    <Hero />
+      <Hero />
 
-    <div id="box1" className="flex items-center justify-center">
-      <ModelSection />
-    </div>
-    
-
+      <div id="box1" className="flex items-center justify-center">
+        <ModelSection />
+      </div>
 
     </main>
   )
