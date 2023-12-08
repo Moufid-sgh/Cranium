@@ -32,5 +32,46 @@ body {
     margin: 0 -10 px;
 }
 
+.content-carousel-card {
+ background-color: aqua;
+}
+
+/* btn************************/
+.btn {
+    position: relative;
+    display: inline-flex;
+    padding: 5px 22px;
+    border-radius: 25px;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .btn span {
+    z-index: 1;
+    position: relative;
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #d4d4d8;
+    transition: width 0.5s, height 0.5s;
+  }
+  
+  .btn:hover::before {
+    width: 100px;
+    height: 100px;
+  }
+
+
 
 

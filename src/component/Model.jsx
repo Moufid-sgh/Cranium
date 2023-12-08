@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import roman from "/roman.jpg";
+import { useEffect, useRef, useState } from "react";
 import artak from "/artak.jpg";
 
 import { gsap } from "gsap";
@@ -8,7 +7,7 @@ import ModelDetails from "./ModelDetails";
 gsap.registerPlugin(ScrollTrigger);
 
 
-function Model() {
+function Model({setSwipeOn}) {
 
   const containerRef = useRef();
   const imgRef = useRef();
@@ -43,13 +42,39 @@ function Model() {
 
   }, [])
 
-  
+
+
+  //----handle mouse click and drag-----------------------------------------//
+  const [modelOn, setModelOn] = useState(false);
+  // const [mouseDown, setMouseDown] = useState(false);
+  // const [mouseMove, setMouseMove] = useState(false);
+
+  const handleImageClick = (e) => {
+      e.stopPropagation();
+       const mouseUp = e.clientX;
+    if (
+      mouseUp < window.checkForDrag + 6 &&
+      mouseUp > window.checkForDrag - 6
+    ) {
+      setModelOn(true);
+    }
+  };
+
+  const mouseDownCoords = (e) => {
+    window.checkForDrag = e.clientX;
+    setSwipeOn(true)
+  };
+
+
 
   return ( 
   <>
-    <div className='lg:w-[90%] h-[620px] sm:h-[720px] lg:h-[470px]'>
+    <div className='lg:w-[90%] h-[620px] sm:h-[720px] lg:h-[470px] active:scale-95 duration-300 ease' 
+         onMouseDown={e => mouseDownCoords(e)}  
+         onMouseUp={()=>setSwipeOn(false)} 
+         onClick={handleImageClick}> 
 
-      <div className='model h-[85%] w-full relative overflow-hidden invisible cursor-pointer' ref={containerRef}>
+      <div className='model h-[85%] w-full relative overflow-hidden invisible cursor-pointer active:cursor-grab' ref={containerRef}>
         <img src={artak} alt='skull' className='object-cover object-center w-full h-full absolute top-0 left-0 origin-left' ref={imgRef} />
       </div>
 
@@ -60,7 +85,7 @@ function Model() {
 
     </div>
 
-    {/* <ModelDetails /> */}
+     {modelOn && <ModelDetails /> }
     </>
   )
 }

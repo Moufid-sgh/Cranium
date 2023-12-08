@@ -71,7 +71,7 @@ function Hero() {
             <div className="order-last md:order-first md:w-[60%] lg:w-1/2 ml-2.5 sm:ml-0">
                 <section className="text-reveal flex items-center justify-center text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold h-[45vh] md:h-[80vh]">
                     <p>
-                        <span className="uppercase text-[#0e7490]">Explore my creative sanctuary, </span>
+                        <span className="uppercase text-sky-600">Explore my creative sanctuary, </span>
                         <span className="rockText text-lg md:text-2xl"> where I use animal skulls as my medium to reshape the essence of nature</span>
                     </p>
                 </section>
@@ -105,7 +105,7 @@ function Hero() {
             </div>
 
             <div className="flex items-center justify-center order-first md:order-last md:w-[40%] lg:w-1/2 h-[40vh] md:h-[80vh] mt-4 md:mt-0" ref={skullRef}>
-                <ErrorBoundary fallback={<p>⚠️Something went wrong</p>}>
+                <ErrorBoundary fallback={<p className='border border-red-600 p-2 rounded-md'>⚠️Something went wrong</p>}>
                     <Skull />
                 </ErrorBoundary>
             </div>
