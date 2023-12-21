@@ -23,6 +23,19 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+.modelOn {
+  overflow-y: hidden;
+}
+
+.modelTitle {
+  background-color: #fff;
+  background-clip: text;
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+}
+
+
+
 /* slider*********************/
 .slick-slide > div {
     margin: 0 10px;
@@ -32,9 +45,6 @@ body {
     margin: 0 -10 px;
 }
 
-.content-carousel-card {
- background-color: aqua;
-}
 
 /* btn************************/
 .btn {
@@ -49,7 +59,7 @@ body {
     overflow: hidden;
   }
   
-  .btn span {
+  .btn a {
     z-index: 1;
     position: relative;
   }
@@ -63,7 +73,7 @@ body {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: #d4d4d8;
+    background: #090909;
     transition: width 0.5s, height 0.5s;
   }
   
@@ -71,6 +81,7 @@ body {
     width: 100px;
     height: 100px;
   }
+
 
 
 

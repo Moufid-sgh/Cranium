@@ -2,10 +2,10 @@ import React from 'react';
 import { useEffect } from "react";
 import Preloader from "./component/Preloader";
 import Hero from "./component/Hero";
-import ModelSection from "./component/ModelSection";
 import { SmoothScroll } from "./component/Functions/SmoothScroll";
 import Navbar from './component/Navbar';
-
+import Test from "./component/Test";
+import ModelSection from './component/ModelSection';
 
 
 function App() {
@@ -30,9 +30,7 @@ function App() {
 
       <Hero />
 
-      <div id="box1" className="flex items-center justify-center">
-        <ModelSection />
-      </div>
+      <ModelSection />
 
     </main>
   )

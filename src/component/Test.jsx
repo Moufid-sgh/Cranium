@@ -1,17 +1,15 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import Model from "./Model";
-import ModelDetails from "./ModelDetails";
+import ModelTest from "./ModelTest";
 import ErrorBoundary from "./ErrorBoundary";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { Draggable } from "gsap/Draggable";
+gsap.registerPlugin(ScrollTrigger, Draggable);
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { settings } from "../component/Functions/SliderControl"
+import { motion } from "framer-motion";
 
+import ModelDetails from "./ModelDetails";
 
 import ox0 from "/ox/ox-0.jpg"
 import ox1 from "/ox/ox-1.jpg"
@@ -22,10 +20,7 @@ import ox5 from "/ox/ox-5.jpg"
 import ox7 from "/ox/ox-7.jpg"
 
 
-function ModelSection() {
-
-    const oxHead = [{ name: "oxHead", img: ox0 }, { name: "oxHead", img: ox1 }, { name: "oxHead", img: ox2 }, { name: "oxHead", img: ox3 },
-    { name: "oxHead", img: ox4 }, { name: "oxHead", img: ox5 }, { name: "oxHead", img: ox7 }]
+function Test() {
 
     const modelSectionRef = useRef();
     const sliderRef = useRef();
@@ -37,6 +32,7 @@ function ModelSection() {
     useEffect(() => {
 
         let ctx = gsap.context(() => {
+
 
             gsap.to(modelSectionRef.current, {
                 scrollTrigger: {
@@ -107,58 +103,59 @@ function ModelSection() {
     };
 
 
+    //---carousel---------------------------//
+    const carouselRef = useRef();
 
-    const [modelOn, setModelOn] = useState(false);
-    const [index, setIndex] = useState();
+    const [width, setWidth] = useState(0);
 
-    //------handle scroll modal--------------------------------------------//
-  useEffect(() => {
-    if(modelOn) {
-      document.body.classList.add('modelOn')
-    }
-    else {
-      document.body.classList.remove('modelOn')
-    }
-  },[modelOn]);
+    useEffect(() => {
+
+        setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth)
+
+    }, []);
+
+    const [swipeOn, setSwipeOn] = useState(false);
+
+    const oxHead = [{ name: "oxHead", img: ox0 }, { name: "oxHead", img: ox1 }, { name: "oxHead", img: ox2 }, { name: "oxHead", img: ox3 },
+    { name: "oxHead", img: ox4 }, { name: "oxHead", img: ox5 }, { name: "oxHead", img: ox7 }]
 
 
 
     return (
-        <div ref={modelSectionRef} className='relative flex flex-col items-center justify-center bg-[#090909] h-[97vh]  rounded-3xl lg:px-8'>
+        <div ref={modelSectionRef} className='relative flex flex-col items-center justify-center bg-[#090909] h-[97vh] rounded-3xl lg:px-16'>
 
             <h2 className="absolute top-4 left-6 text-[#e6eaf5] text-xl tracking-wider">{title.split("").map((letter, i) => {
                 return <span key={i} className="letter-reveal">{letter}</span>
             })}
             </h2>
 
-            <div ref={mouseRef} className="glass opacity-0 fixed top-5 left-[-40px] z-10 w-24 h-24 rounded-full flex items-center justify-center text-base text-slate-200 tracking-wider">
-               Discover
-            </div>
+            {!swipeOn && <div ref={mouseRef} className="glass opacity-0 fixed top-5 left-[-40px] z-50 w-24 h-24 rounded-full flex items-center justify-center text-base text-slate-200 tracking-wider">
+                Discover
+            </div>}
 
-            <div className="sm:mt-24 lg:mt-4 h-[85%] lg:h-[70%] w-full lg:w-[90%]">
-                <Slider {...settings} ref={sliderRef}>
+            <motion.div className="w-full active:cursor-grab overflow-hidden">
+                <motion.div ref={carouselRef} drag="x" dragConstraints={{ right: 0, left: -width }} className="flex space-x-12">
                     {oxHead.map((el, i) => {
-                        return <div key={i}>
+                        return <div key={i} >
                             <ErrorBoundary fallback={<p className="flex items-center justify-center text-slate-200 h-[400px]">⚠️ unexpected error</p>}>
                                 <Suspense fallback={loader()}>
-                                    <Model el={el} i={i} setModelOn={setModelOn} setIndex={setIndex}  />
+                                    <ModelTest el={el} setSwipeOn={setSwipeOn} index={i} />
                                 </Suspense>
                             </ErrorBoundary>
                         </div>
                     })}
-                </Slider>
-            </div>
-
-            {modelOn && <ModelDetails setModelOn={setModelOn} index={index} />}
+                </motion.div>
+            </motion.div>
 
 
-            <div className="absolute bottom-4 right-10 space-x-3 text-2xl">
-                <button className="text-slate-200 rotate-180 hover:opacity-80 duration-300" onClick={() => sliderRef.current.slickPrev()}>&#10132;</button>
-                <button className="text-slate-200 hover:opacity-80 duration-300" onClick={() => sliderRef.current.slickNext()}>&#10132;</button>
-            </div>
+
+            // {/* <div className="absolute bottom-4 right-10 space-x-3 text-2xl">
+            //     <button className="text-slate-200 rotate-180 hover:opacity-80 duration-300" onClick={() => sliderRef.current.slickPrev()}>&#10132;</button>
+            //     <button className="text-slate-200 hover:opacity-80 duration-300" onClick={() => sliderRef.current.slickNext()}>&#10132;</button>
+            // </div> */}
 
         </div>
     )
 }
 
-export default ModelSection
+export default Test

@@ -20,17 +20,17 @@ function Navbar() {
 
   return (
     <nav className="flex items-center justify-between h-20">
-      <h3 className="tracking-wide text-2xl font-bold">Cranium</h3>
+      <h1 className="tracking-wide text-2xl font-bold">Cranium</h1>
 
-      <div className="flex justify-around border md:w-[35%] lg:w-[22%]">
-        <a className="btn border border--[#090909]" onMouseMove={handleMouseMove}>
-          <span>Model</span>
-        </a>
+      <ul className="flex justify-around border md:w-[35%] lg:w-[22%]">
+        <li className="btn border border-[#090909]" onMouseMove={handleMouseMove}>
+          <a>Models</a>
+        </li>
 
-        <a className="btn border border-[#090909]" onMouseMove={handleMouseMove}>
-          <span>Contact</span>
-        </a>
-      </div>
+        <li className="btn border border-[#090909]" onMouseMove={handleMouseMove}>
+          <a>Contact</a>
+        </li>
+      </ul>
 
     </nav>
   )

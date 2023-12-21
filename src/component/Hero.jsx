@@ -78,7 +78,7 @@ function Hero() {
 
                 <section className="text-reveal-2 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold h-[45vh] md:h-[80vh]">
                     <div className="text">
-                        <p className="uppercase text-[#0e7490]">{firstTitle.split("").map((letter, i) => {
+                        <p className="uppercase text-sky-600">{firstTitle.split("").map((letter, i) => {
                             return <span key={i} className="split-title">{letter}</span>
                         })}
                         </p>
@@ -92,7 +92,7 @@ function Hero() {
 
                 <section className="text-reveal-3 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold h-[45vh] md:h-[80vh]">
                     <div className="text">
-                        <p className="uppercase text-[#0e7490]">{secondTitle.split("").map((letter, i) => {
+                        <p className="uppercase text-sky-600">{secondTitle.split("").map((letter, i) => {
                             return <span key={i} className="split-title-2">{letter}</span>
                         })}
                         </p>

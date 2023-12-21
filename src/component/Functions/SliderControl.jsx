@@ -24,9 +24,9 @@ function SampleNextArrow(props) {
 export const settings =  {
     // dots: true,
     infinite: false,
-    speed: 500,
+    speed: 800,
     slidesToShow: 3,
-    // slidesToScroll: 1,
+    slidesToScroll: 2,
     swipeToSlide: true,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
