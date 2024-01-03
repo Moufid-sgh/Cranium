@@ -1,38 +1,21 @@
-import React from 'react';
-import { useEffect } from "react";
-import Preloader from "./component/Preloader";
-import Hero from "./component/Hero";
-import { SmoothScroll } from "./component/Functions/SmoothScroll";
-import Navbar from './component/Navbar';
-import Test from "./component/Test";
-import ModelSection from './component/ModelSection';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Admin from './Admin';
+import ModelsList from './ModelsList';
+import ScrollTop from './component/Functions/ScrollTop';
 
 
 function App() {
 
-
-  //---smooth scroll-----------------------//
-  useEffect(() => {
-
-    SmoothScroll()
-
-  }, []);
-
-
-
-
   return (
-    <main className="mx-2 md:mx-8 lg:mx-16">
-
-      {/* <Preloader /> */}
-
-      <Navbar />
-
-      <Hero />
-
-      <ModelSection />
-
-    </main>
+    <BrowserRouter>
+      <ScrollTop />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/models" element={<ModelsList />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 import Skull from "./Skull";
 import ErrorBoundary from './ErrorBoundary';
 
