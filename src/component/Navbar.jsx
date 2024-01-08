@@ -5,6 +5,15 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
 
+  const goToContact = (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    })
+  };
+
 
   return (
     <nav className="flex items-center justify-between h-20">
@@ -21,7 +30,7 @@ function Navbar() {
           </button>
         </Link>
 
-        <button>
+        <button onClick={goToContact}>
           Contact
           <span className="first"></span>
           <span className="second"></span>

@@ -4,6 +4,7 @@ import Navbar from './component/Navbar';
 import Preloader from "./component/Preloader";
 import Hero from "./component/Hero";
 import ModelSection from './component/ModelSection';
+import Contact from './component/Contact';
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
   }, []);
 
 
+
     return (
         <main className="mx-2 md:mx-4 lg:mx-16">
             {/* <Preloader /> */}
@@ -24,6 +26,8 @@ const Home = () => {
             <Hero />
 
             <ModelSection />
+
+            <Contact />
         </main>
     )
 }

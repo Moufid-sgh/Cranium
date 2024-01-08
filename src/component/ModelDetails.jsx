@@ -1,6 +1,8 @@
 import { createPortal } from 'react-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Suspense } from 'react';
 import { gsap } from 'gsap';
+import { Loader } from './Functions/Loader';
+import ErrorBoundary from './ErrorBoundary';
 
 
 
@@ -63,7 +65,11 @@ function ModelDetails({ el, setModelOn }) {
             <div className='flex transition ease-out duration-500' style={{ transform: `translateX(-${current * 100}%)` }}>
               {imgList.map((el, i) => {
                 return <div key={i} className='relative w-[320px] md:w-[640px] h-[420px] md:h-[530px] shrink-0'>
-                  <img src={el} alt='image' className='object-cover object-center w-full h-full absolute top-0 left-0' draggable="false" />
+                  <ErrorBoundary fallback={<p className="flex items-center justify-center text-slate-200 h-[400px]">⚠️ unexpected error</p>}>
+                    <Suspense fallback={Loader()}>
+                      <img src={el} alt='image' className='object-cover object-center w-full h-full absolute top-0 left-0' draggable="false" />
+                    </Suspense>
+                  </ErrorBoundary>
                 </div>
               })}
             </div>

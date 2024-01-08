@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ModelOverview from "./ModelOverview";
 import ErrorBoundary from "./ErrorBoundary";
@@ -53,24 +53,28 @@ function ModelSection() {
     }, []);
 
 
+    
     //----title aniamtion--------------------------------//
     useEffect(() => {
 
+        let lettrers = document.querySelectorAll('.letter-reveal');
+        
+        let tl = gsap.timeline();
+
         let ctx = gsap.context(() => {
 
-            gsap.from('.letter-reveal', {
+            tl.from(lettrers, {
                 scrollTrigger: {
                     trigger: modelSectionRef.current,
                     start: 'top 30%',
                     end: '80% 90%',
                     scrub: true,
-                    once: true,
+                    // once: true,
                 },
                 opacity: 0,
                 stagger: 0.2,
                 ease: "back.out",
             })
-
         })
 
         return () => ctx.revert();
@@ -81,19 +85,17 @@ function ModelSection() {
 
 
     return (
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
             <div ref={modelSectionRef} className='relative flex flex-col items-center justify-center bg-[#090909] h-screen w-[0%] rounded-3xl lg:px-8'>
 
-                {/* <div className="absolute top-4 left-6 text-slate-200 text-xl tracking-wider">
+                <div className="absolute top-4 left-6 text-slate-200 text-xl tracking-wider">
                     <span className="letter-reveal">M</span>
                     <span className="letter-reveal">O</span>
                     <span className="letter-reveal">D</span>
                     <span className="letter-reveal">E</span>
                     <span className="letter-reveal">L</span>
                     <span className="letter-reveal">S</span>
-                </div> */}
-
-                <h3 className="absolute top-4 left-6 text-slate-200 text-xl tracking-wider">MODELS</h3>
+                </div>
 
 
                 <div className="flex flex-col justify-center h-[85%] lg:h-[70%] w-[95%]">
@@ -102,7 +104,7 @@ function ModelSection() {
                             return <div key={i}>
                                 <ErrorBoundary fallback={<p className="flex items-center justify-center text-slate-200 h-[400px]">⚠️ unexpected error</p>}>
                                     <Suspense fallback={Loader()}>
-                                        <ModelOverview el={el} /> 
+                                        <ModelOverview el={el} />
                                     </Suspense>
                                 </ErrorBoundary>
                             </div>
