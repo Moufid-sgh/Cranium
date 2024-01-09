@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ModelOverview from "./ModelOverview";
 import ErrorBoundary from "./ErrorBoundary";
@@ -55,25 +55,29 @@ function ModelSection() {
 
     
     //----title aniamtion--------------------------------//
+
+    const modelTitle = useRef();
+
     useEffect(() => {
 
-        let lettrers = document.querySelectorAll('.letter-reveal');
         
         let tl = gsap.timeline();
 
         let ctx = gsap.context(() => {
 
-            tl.from(lettrers, {
+            tl.from(modelTitle.current, {
                 scrollTrigger: {
                     trigger: modelSectionRef.current,
                     start: 'top 30%',
                     end: '80% 90%',
                     scrub: true,
-                    // once: true,
+                    once: true,
                 },
                 opacity: 0,
-                stagger: 0.2,
-                ease: "back.out",
+                y: '200%',
+                skewY: '20%',
+                duration: 1,
+                ease: "power1.inOut"
             })
         })
 
@@ -88,14 +92,10 @@ function ModelSection() {
         <div className="flex items-center justify-center">
             <div ref={modelSectionRef} className='relative flex flex-col items-center justify-center bg-[#090909] h-screen w-[0%] rounded-3xl lg:px-8'>
 
-                <div className="absolute top-4 left-6 text-slate-200 text-xl tracking-wider">
-                    <span className="letter-reveal">M</span>
-                    <span className="letter-reveal">O</span>
-                    <span className="letter-reveal">D</span>
-                    <span className="letter-reveal">E</span>
-                    <span className="letter-reveal">L</span>
-                    <span className="letter-reveal">S</span>
-                </div>
+
+          <div className='absolute top-4 left-6 text-slate-200 text-xl tracking-wider overflow-hidden'>
+            <h1 ref={modelTitle}>MODELS</h1>
+          </div>
 
 
                 <div className="flex flex-col justify-center h-[85%] lg:h-[70%] w-[95%]">

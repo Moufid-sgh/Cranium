@@ -64,7 +64,7 @@ function Contact() {
 
 
   return (
-    <footer className='flex flex-col items-center border border-[#090909] rounded-3xl p-8 mt-24 mb-6'>
+    <footer className='flex flex-col items-center border border-[#090909] rounded-3xl p-8 mt-24 mb-12 md:mb-6'>
       <div>
         <h3 className='text-2xl lg:text-3xl uppercase italic'>Got project in mind ? Let's connect</h3>
 
@@ -84,18 +84,19 @@ function Contact() {
             onChange={e => setMessage(e.target.value)}>
           </textarea>
 
-          {!msgSent ? <input type="submit" value="Send" className='border border-[#090909] rounded-2xl px-6 py-1.5 mt-6 cursor-pointer' />
-            : <p ref={msgRef} className='py-1.5 px-4 mt-6 text-center bg-[#090909] text-slate-200'>Got your message ! I'll be in touch soon. Thanks !</p>}
-
+          {!msgSent ? <input type="submit" value="Send" 
+              className='relative block border border-[#090909] rounded-2xl tracking-wide px-7 py-1.5 mt-6 z-10 hover:text-slate-200 hover:bg-[#090909] duration-500 ease-out cursor-pointer ' />
+            : <p ref={msgRef} className='py-1.5 px-4 mt-6 text-center bg-[#090909] text-slate-200'>Got your message ! I'll be in touch soon. Thanks !</p>
+          }
 
 
         </form>
       </div>
 
-      <div className='flex items-center mt-12 space-x-12'>
-        <p className='text-lg'>Feel free to connect with me on social</p>
+      <div className='md:flex items-center mt-12 md:space-x-12'>
+        <p className='md:text-lg'>Feel free to connect with me on social</p>
 
-        <div className='flex items-center space-x-3'>
+        <div className='flex items-center justify-center space-x-6 md:space-x-3 mt-3 md:mt-0'>
           <a href='https://www.facebook.com/profile.php?id=100076472701454' target='_blank'>
             <svg className='cursor-pointer hover:scale-110 duration-300' xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 64 64">
               <path d="M48,7H16c-4.418,0-8,3.582-8,8v32c0,4.418,3.582,8,8,8h17V38h-6v-7h6v-5c0-7,4-11,10-11c3.133,0,5,1,5,1v6h-4 c-2.86,0-4,2.093-4,4v5h7l-1,7h-6v17h8c4.418,0,8-3.582,8-8V15C56,10.582,52.418,7,48,7z"></path>
