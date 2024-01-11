@@ -31,6 +31,9 @@ body {
   -webkit-text-stroke: 0.7px #fff;
 }
 
+#secondText, #thirdText, #firstText {
+  line-height: 50px;
+}
 
 /* slider----------------------------------------*/
 .slick-slide > div {

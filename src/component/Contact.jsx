@@ -12,11 +12,16 @@ function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [adress, setadress] = useState("");
   const [empty, setEmpty] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
-    if (!name) {
+
+    if(adress) {
+      return;
+    }
+    else if (!name) {
       setEmpty("nameError")
     }
     else if (!email) {
@@ -77,6 +82,11 @@ function Contact() {
           <input type='email' placeholder='Email' cname="user_email"
             className={`${empty === 'emailError' ? 'border-b border-red-500 placeholder-red-500' : 'border-b border-[#090909] placeholder-gray-600'} w-80 my-4 bg-transparent block focus:outline-none focus:border-b-2 py-2 tracking-wide`}
             onChange={e => setEmail(e.target.value)}
+          />
+
+          <input type='text' placeholder='adress' cname="user_adress"
+            className="hidden"
+            onChange={e => setadress(e.target.value)}
           />
 
           <textarea placeholder='Message' name="message"

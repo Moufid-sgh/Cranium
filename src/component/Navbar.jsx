@@ -20,11 +20,13 @@ function Navbar() {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
     const ctx = gsap.context(() => {
+      if(navOn){
       tl.fromTo(firstLayer.current, { x: '-100%' }, { x: '90%', duration: 1.2 })
       tl.fromTo(secondLayer.current, { x: '-100%' }, { x: '0%', duration: 1.2 }, "-=1")
       tl.from(modelRef.current, { opacity: 0, y: '100%', skewY: '20%', duration: 0.8 })
       tl.from(contactRef.current, { opacity: 0, y: '100%', skewY: '20%', duration: 0.8 })
-      tl.from(socialRef.current, { opacity: 0, duration: 0.8 })
+      tl.from(socialRef.current, { opacity: 0, scale:0.8, duration: 0.8 })
+      }
     })
 
     return () => ctx.revert();
@@ -94,17 +96,15 @@ function Navbar() {
               &#10007;
             </span>
 
-            <ul className='text-slate-200 text-2xl space-y-6 tracking-wide'>
-              <Link to="/models">
-                <li className='relative overflow-hidden hover:text-sky-600 duration-300'>
-                  <a className='block' ref={modelRef}>MODELS</a>
-                </li>
+            <div className='text-slate-200 text-2xl space-y-6 tracking-wide'>
+              <Link to="/models" className='relative overflow-hidden block hover:text-sky-600 duration-300 cursor-pointer'>
+                  <p className='block' ref={modelRef}>MODELS</p>
               </Link>
-              <li className='relative overflow-hidden hover:text-sky-600 duration-300'
+              <p className='relative overflow-hidden hover:text-sky-600 duration-300 cursor-pointer'
                   onClick={goToContact}>
                 <a className='block' ref={contactRef}>CONTACT</a>
-              </li>
-            </ul>
+              </p>
+            </div>
 
             <div ref={socialRef} className='flex items-center space-x-6 mt-12'>
               <a href='https://www.facebook.com/profile.php?id=100076472701454' target='_blank'>
