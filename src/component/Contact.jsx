@@ -69,7 +69,7 @@ function Contact() {
 
 
   return (
-    <footer className='flex flex-col items-center border border-[#090909] rounded-3xl p-8 mt-24 mb-12 md:mb-6'>
+    <footer className='flex flex-col items-center border border-[#090909] rounded-3xl p-8 mb-12 md:mb-6'>
       <div>
         <h3 className='text-2xl lg:text-3xl uppercase italic'>Got project in mind ? Let's connect</h3>
 

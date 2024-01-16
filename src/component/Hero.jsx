@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import Skull from "./Skull";
 import ErrorBoundary from './ErrorBoundary';
 
@@ -49,7 +49,7 @@ function Hero() {
 
 
 
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         let mm = gsap.matchMedia();
         //--mobile text animation-------------------//

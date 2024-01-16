@@ -5,6 +5,7 @@ import Preloader from "./component/Preloader";
 import Hero from "./component/Hero";
 import ModelSection from './component/ModelSection';
 import Contact from './component/Contact';
+import Testimonial from './component/Testimonial';
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
 
   }, []);
 
+ 
 
 
     return (
@@ -26,6 +28,8 @@ const Home = () => {
             <Hero />
 
             <ModelSection />
+
+            <Testimonial />
 
             <Contact />
         </main>

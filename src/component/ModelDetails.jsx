@@ -6,7 +6,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 
 
-function ModelDetails({ el, setModelOn }) {
+function ModelDetails({ el, setModelOn, modelOn }) {
 
   const imgList = el.imgList;
 
@@ -15,25 +15,24 @@ function ModelDetails({ el, setModelOn }) {
   const firstSection = useRef();
   const secondSection = useRef();
 
+
   useEffect(() => {
-    let tl = gsap.timeline()
 
-    let ctx = gsap.context(() => {
-      tl.fromTo(modalRef.current,
-        { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.8, ease: 'power4.easeInOut' }
-      )
-      tl.from(secondSection.current,
-        { opacity: 0, y: 200, duration: 0.8, ease: 'power4.easeInOut' }
-      )
-      tl.fromTo(firstSection.current,
-        { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.8, ease: 'power4.easeInOut' }
-      )
-      tl.from('.text-reveal .modelTitle', { duration: 0.8, y: '200%', opacity: 0, ease: 'power1.out' }
-      )
-    });
+    const tl  = gsap.timeline({defaults: { ease: 'power3.out' } })
 
-    return () => ctx.revert()
-  }, []);
+    if (modelOn) {
+      tl.to(modalRef.current, { x: "0%", duration: 0.8, ease: 'power4.easeInOut' })
+      tl.from(secondSection.current, { opacity: 0, y: 200, duration: 0.8, ease: 'power4.easeInOut' })
+      tl.fromTo(firstSection.current, { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.8, ease: 'power4.easeInOut' })
+      tl.from('.text-reveal .modelTitle', { duration: 0.8, y: '200%', opacity: 0, ease: 'power1.out' })
+    }
+    else {
+      tl.to(modalRef.current, { x: "-100%", duration: 0.7, ease: 'power4.easeInOut'})
+    }
+    
+    return () => tl.kill()
+
+  },[modelOn])
 
 
   //---handle slide------------------------------------//
@@ -53,7 +52,8 @@ function ModelDetails({ el, setModelOn }) {
 
   return createPortal(
 
-    <div ref={modalRef} className='fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-[#090909] z-50'>
+    <div ref={modalRef} 
+         className='fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-[#090909] translate-x-[-100%] z-50'>
 
       <div className='relative flex flex-col lg:flex-row items-center justify-center w-full h-full overflow-y-scroll lg:overflow-hidden'>
         <span onClick={() => setModelOn(false)}
@@ -88,7 +88,7 @@ function ModelDetails({ el, setModelOn }) {
 
 
 
-        <div className='lg:w-1/2 flex flex-col md:flex-row lg:flex-col items-center space-x-16 mt-2 md:mt-8 lg:mt-0'>
+        <div className='lg:w-1/2 flex flex-col md:flex-row lg:flex-col items-center mt-2 md:mt-8 lg:mt-0'>
 
           <div className='text-reveal relative overflow-hidden'>
             <h1 className='modelTitle text-[80px] lg:text-[120px]'>CRANIUM</h1>

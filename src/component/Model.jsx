@@ -21,7 +21,6 @@ function Model({ el }) {
 
 
 
-
   return (
     <>
       <div className='w-[350px] h-[620px] sm:h-[720px] lg:h-[470px] my-10 active:scale-95 duration-300 ease'
@@ -35,7 +34,7 @@ function Model({ el }) {
         <p className='text-[#e6eaf5] rockText text-lg mt-2'>Ox head</p>
       </div>
 
-      {modelOn && <ModelDetails el={el} setModelOn={setModelOn} />}
+      <ModelDetails el={el} setModelOn={setModelOn} modelOn={modelOn} />
     </>
   )
 }

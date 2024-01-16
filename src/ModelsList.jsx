@@ -1,8 +1,9 @@
 import React, { useRef, useLayoutEffect, Suspense } from 'react';
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 import Model from './component/Model';
 import ErrorBoundary from './component/ErrorBoundary';
 import { Loader } from './component/Functions/Loader';
+import logo from '/white_logo.png';
 
 import ox0 from "/ox/ox-0.jpg"
 import ox1 from "/ox/ox-1.jpg"
@@ -46,7 +47,7 @@ const ModelsList = () => {
 
                 <nav ref={navRef} className='flex items-center justify-between px-4 md:px-0 pt-4'>
                     <Link to='/'>
-                        <h1 className="tracking-wide text-2xl font-bold hover:opacity-80 duration-500">Cranium</h1>
+                        <img src={logo} alt='logo' className='w-28 md:w-32' />
                     </Link>
 
                     <svg version="1.1" viewBox="0 0 26 26" className='w-8 h-8 cursor-pointer hover:opacity-80 duration-500'>
