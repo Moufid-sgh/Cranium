@@ -3,12 +3,15 @@ import Home from './Home';
 import Admin from './Admin';
 import ModelsList from './ModelsList';
 import ScrollTop from './component/Functions/ScrollTop';
-
+import Preloader from "./component/Preloader";
 
 function App() {
 
 
   return (
+    <>
+      <Preloader />
+
       <BrowserRouter>
         <ScrollTop />
         <Routes >
@@ -17,6 +20,8 @@ function App() {
           <Route path="/models" element={<ModelsList />} />
         </Routes>
       </BrowserRouter>
+    </>
+
   )
 }
 

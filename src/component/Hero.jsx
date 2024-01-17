@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import Skull from "./Skull";
 import ErrorBoundary from './ErrorBoundary';
 
@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 import SplitType from "split-type";
 
 function Hero() {
+
 
     const heroRef = useRef();
     const skullRef = useRef();

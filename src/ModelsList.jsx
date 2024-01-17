@@ -47,7 +47,7 @@ const ModelsList = () => {
 
                 <nav ref={navRef} className='flex items-center justify-between px-4 md:px-0 pt-4'>
                     <Link to='/'>
-                        <img src={logo} alt='logo' className='w-28 md:w-32' />
+                        <img src={logo} alt='logo' className='w-28 md:w-32 hover:opacity-80 duration-300' />
                     </Link>
 
                     <svg version="1.1" viewBox="0 0 26 26" className='w-8 h-8 cursor-pointer hover:opacity-80 duration-500'>
