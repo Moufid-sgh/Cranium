@@ -69,9 +69,6 @@ function ModelOverview({ el, setModelOn }) {
         {/* <img src={el.img} srcset={`${el.imgM} 320w, ${el.img} 1920w`} sizes="(max-width: 768px) 100vw, 1920px"ref={imgRef}/> */}
       </div>
 
-      <div className='mt-2 text-center'>
-        <p className='capitalize text-[#e6eaf5] rockText text-lg mt-2'>{el.name}</p>
-      </div>
 
     </div>
   )
