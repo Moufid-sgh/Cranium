@@ -20,15 +20,13 @@ import ox2 from "/preview/ox-2.jpg"
 import ox3 from "/preview/ox-3.jpg"
 import ox4 from "/preview/ox-4.jpg"
 import ox5 from "/preview/ox-5.jpg"
-import oxm from "/preview/ox-5-mobile.jpg"
 import ox7 from "/preview/ox-7.jpg"
 import ox8 from "/preview/ox-8.jpg"
 
 
 function ModelSection() {
 
-    const oxHead = [{ name: "oxHead", img: ox0, imgM: oxm }, { name: "oxHead", img: ox1, imgM: oxm }, { name: "oxyoyo", img: ox2, imgM: oxm }, { name: "oxHead", img: ox3, imgM: oxm },
-    { name: "oxHead", img: ox4, imgM: oxm }, { name: "oxHead", img: ox5, imgM: oxm }, { name: "oxHead", img: ox7, imgM: oxm }, { name: "oxHead", img: ox8, imgM: oxm }]
+    const oxHead = [{img: ox0}, {img: ox1}, { img: ox2}, {img: ox3},{img: ox4}, {img: ox5}, {img: ox7}, {img: ox8}]
 
     const modelSectionRef = useRef();
 

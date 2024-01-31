@@ -48,11 +48,11 @@ const ModelsList = () => {
 
 
     return (
-        <div className='bg-[#090909] pb-6'>
+        <div className='bg-[#090909]  pb-6'>
 
             <div ref={firstLayer} className='fixed top-0 left-0 w-full h-screen bg-[#E6EAF5]'></div>
 
-            <div ref={secondLayer} className='w-full h-fit text-slate-200 px-2 md:px-8 lg:px-16'>
+            <div ref={secondLayer} className='w-full min-h-screen text-slate-200 px-2 md:px-8 lg:px-16'>
 
 
                 <nav ref={navRef} className='flex items-center justify-between px-4 md:px-0 pt-4'>

@@ -76,6 +76,7 @@ const Admin = () => {
         setDesc_2(null)
         setDesc_3(null)
         setDesc_4(null)
+        setSoldOut(false)
         setImageNames([])
         nameRef.current.value = ""
         heightRef.current.value = ""
