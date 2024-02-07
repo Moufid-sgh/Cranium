@@ -54,7 +54,7 @@ function ModelDetails({ el, setModelOn, modelOn }) {
     <div ref={modalRef} 
          className='fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-[#090909] translate-x-[-100%] z-50'>
 
-      <div className='relative flex flex-col lg:flex-row items-center justify-center w-full h-full overflow-y-scroll lg:overflow-hidden'>
+      <div className='relative flex flex-col lg:flex-row items-center justify-center w-full h-full overflow-y-scroll lg:overflow-hidden pb-10 lg:pb-0'>
         <span onClick={() => setModelOn(false)}
           className='absolute top-4 right-5 z-20 font-weight text-2xl text-slate-100 hover:text-sky-600 duration-300 cursor-pointer'>&#10007;</span>
 
@@ -87,7 +87,7 @@ function ModelDetails({ el, setModelOn, modelOn }) {
 
 
 
-        <div className='lg:w-1/2 flex flex-col md:flex-row lg:flex-col items-center mt-2 md:mt-8 lg:mt-0'>
+        <div className='lg:w-1/2 flex flex-col md:flex-row  md:space-x-10 lg:space-x-0 lg:flex-col items-center mt-2 md:mt-8 lg:mt-0'>
 
           <div className='text-reveal relative overflow-hidden'>
             <h1 className='modelTitle text-[80px] lg:text-[120px]'>CRANIUM</h1>

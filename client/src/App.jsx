@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Admin from './Admin';
+import ErrorPage from './ErrorPage';
 import ModelsList from './ModelsList';
 import ScrollTop from './component/Functions/ScrollTop';
 import Preloader from "./component/Preloader";
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader />
 
       <BrowserRouter>
         <ScrollTop />
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/models" element={<ModelsList />} />
+          <Route path='*' element={<ErrorPage/>} />
         </Routes>
       </BrowserRouter>
     </>
