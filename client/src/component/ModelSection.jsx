@@ -14,19 +14,20 @@ import "slick-carousel/slick/slick-theme.css";
 import { settings } from "../component/Functions/SliderControl"
 
 
-import ox0 from "/preview/ox-0.jpg"
-import ox1 from "/preview/ox-1.jpg"
-import ox2 from "/preview/ox-2.jpg"
-import ox3 from "/preview/ox-3.jpg"
-import ox4 from "/preview/ox-4.jpg"
-import ox5 from "/preview/ox-5.jpg"
-import ox7 from "/preview/ox-7.jpg"
-import ox8 from "/preview/ox-8.jpg"
+import ox0 from "/preview/ox-0.webp"
+import ox1 from "/preview/ox-1.webp"
+import ox2 from "/preview/ox-2.webp"
+import ox3 from "/preview/ox-3.webp"
+import ox4 from "/preview/ox-4.webp"
+import ox5 from "/preview/ox-5.webp"
+import ox6 from "/preview/ox-6.webp"
+import ox7 from "/preview/ox-7.webp"
+import ox8 from "/preview/ox-8.webp"
 
 
 function ModelSection() {
 
-    const oxHead = [{img: ox0}, {img: ox1}, { img: ox2}, {img: ox3},{img: ox4}, {img: ox5}, {img: ox7}, {img: ox8}]
+    const oxHead = [ox0, ox1, ox2, ox3, ox4, ox5, ox6, ox7, ox8]
 
     const modelSectionRef = useRef();
 

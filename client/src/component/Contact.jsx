@@ -71,7 +71,7 @@ function Contact() {
   return (
     <footer className='flex flex-col items-center border border-[#090909] rounded-3xl p-8 mb-12 md:mb-6'>
       <div>
-        <h3 className='text-2xl lg:text-3xl uppercase italic'>Got project in mind ? Let's connect</h3>
+        <h1 className='text-2xl lg:text-3xl uppercase italic'>Got project in mind ? Let's connect</h1>
 
         <form className='mt-8 flex flex-col items-center' ref={form} onSubmit={sendEmail}>
           <input type='text' placeholder='Name' name="user_name"
@@ -79,12 +79,12 @@ function Contact() {
             onChange={e => setName(e.target.value)}
           />
 
-          <input type='email' placeholder='Email' cname="user_email"
+          <input type='email' placeholder='Email' name="user_email"
             className={`${empty === 'emailError' ? 'border-b border-red-500 placeholder-red-500' : 'border-b border-[#090909] placeholder-gray-600'} w-80 my-4 bg-transparent block focus:outline-none focus:border-b-2 py-2 tracking-wide`}
             onChange={e => setEmail(e.target.value)}
           />
 
-          <input type='text' placeholder='adress' cname="user_adress"
+          <input type='text' placeholder='adress' name="user_adress"
             className="hidden"
             onChange={e => setadress(e.target.value)}
           />
@@ -104,7 +104,7 @@ function Contact() {
       </div>
 
       <div className='md:flex items-center mt-12 md:space-x-12'>
-        <p className='md:text-lg'>Feel free to connect with me on social</p>
+        <p className='md:text-lg text-center'>Feel free to connect with me on social</p>
 
         <div className='flex items-center justify-center space-x-6 md:space-x-3 mt-3 md:mt-0'>
           <a href='https://www.facebook.com/profile.php?id=100076472701454' target='_blank'>
@@ -131,7 +131,7 @@ function Contact() {
       <hr className='text-[#090909]' />
 
       <div className='text-xs w-full text-end mt-8'>
-        <h5><span className='font-sans'>&#169;</span> {new Date().getFullYear()}, Cranium, All Rights Reserved.</h5>
+        <p><span className='font-sans'>&#169;</span> {new Date().getFullYear()}, Cranium, All Rights Reserved.</p>
       </div>
 
     </footer>

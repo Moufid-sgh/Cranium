@@ -104,12 +104,12 @@ function Navbar() {
 
             <div className='text-slate-200 text-2xl space-y-6 tracking-wide'>
               <Link to="/models" className='relative overflow-hidden block hover:text-sky-600 duration-300 cursor-pointer'>
-                  <p className='block' ref={modelRef}>MODELS</p>
+                  <p ref={modelRef}>MODELS</p>
               </Link>
-              <p className='relative overflow-hidden hover:text-sky-600 duration-300 cursor-pointer'
+              <div className='relative overflow-hidden hover:text-sky-600 duration-300 cursor-pointer'
                   onClick={goToContact}>
-                <a className='block' ref={contactRef}>CONTACT</a>
-              </p>
+                <p ref={contactRef}>CONTACT</p>
+              </div>
             </div>
 
             <div ref={socialRef} className='flex items-center space-x-6 mt-12'>

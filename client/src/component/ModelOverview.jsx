@@ -64,9 +64,7 @@ function ModelOverview({ el, setModelOn }) {
          onClick={handleImageClick}> 
 
       <div className='model h-[600px] lg:h-[470px] flex justify-center items-center w-full relative overflow-hidden invisible cursor-pointer active:cursor-grab' ref={containerRef}>
-        {/* <img src={el.img} alt='skull' className='object-cover object-center w-full h-full absolute top-0 left-0 origin-left' ref={imgRef} /> */}
-        <img src={el.img} alt='skull' ref={imgRef} />
-        {/* <img src={el.img} srcset={`${el.imgM} 320w, ${el.img} 1920w`} sizes="(max-width: 768px) 100vw, 1920px"ref={imgRef}/> */}
+        <img src={el} loading="lazy" alt='skull' ref={imgRef} />
       </div>
 
 

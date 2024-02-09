@@ -66,7 +66,7 @@ function ModelDetails({ el, setModelOn, modelOn }) {
                 return <div key={i} className='relative w-[320px] md:w-[640px] h-[420px] md:h-[530px] shrink-0'>
                   <ErrorBoundary fallback={<p className="flex items-center justify-center text-slate-200 h-auto">⚠️ unexpected error</p>}>
                     <Suspense fallback={Loader()}>
-                      <img src={el} alt='image' className='object-cover object-center w-full h-full absolute top-0 left-0' draggable="false" />
+                      <img src={el} alt='image' loading='lazy' className='object-cover object-center w-full h-full absolute top-0 left-0' draggable="false" />
                     </Suspense>
                   </ErrorBoundary>
                 </div>

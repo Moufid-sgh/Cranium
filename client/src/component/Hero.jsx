@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Skull from "./Skull";
 import ErrorBoundary from './ErrorBoundary';
 
@@ -15,7 +15,7 @@ function Hero() {
     const skullRef = useRef();
 
     //--skull pinned-----------------------//
-    useLayoutEffect(() => {
+    useEffect(() => {
 
 
         let mm = gsap.matchMedia();
@@ -50,7 +50,7 @@ function Hero() {
 
 
 
-    useLayoutEffect(() => {
+    useEffect(() => {
 
         let mm = gsap.matchMedia();
         //--mobile text animation-------------------//
@@ -122,13 +122,13 @@ function Hero() {
 
             <div className="order-last md:order-first md:w-[60%] lg:w-1/2 ml-2.5 sm:ml-0">
                 <section className="text-reveal flex items-center text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold h-[45vh] md:h-[80vh]">
-                    <p>
-                        <span className="uppercase text-sky-600">Explore my creative sanctuary, </span>
-                        <span id='firstText' className="rockText text-lg md:text-2xl"> where I use animal skulls as my medium to reshape the essence of nature</span>
-                    </p>
+                    <div>
+                        <p className="uppercase text-sky-600">Explore my creative sanctuary, </p>
+                        <p id='firstText'  className="rockText text-lg md:text-2xl"> where I use animal skulls as my medium to reshape the essence of nature</p>
+                    </div>
                 </section>
 
-                <section className="text-reveal-2 flex items-center  text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold h-[45vh] md:h-[80vh]">
+                <section className="text-reveal-2 flex items-center text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold h-[45vh] md:h-[80vh]">
                     <div>
                         <p id="secondtitle" className="uppercase text-sky-600">A unique decor</p>
                         <p id="secondText" className="rockText text-lg md:text-2xl">

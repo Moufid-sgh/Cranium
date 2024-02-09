@@ -9,6 +9,23 @@ import { Link } from 'react-router-dom';
 
 const ModelsList = () => {
 
+
+    const firstLayer = useRef();
+    const secondLayer = useRef();
+    const navRef = useRef();
+
+    useLayoutEffect(() => {
+        const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+        let ctx = gsap.context(() => {
+            tl.fromTo(firstLayer.current, { y: '100%' }, { y: '-100%', duration: 1.2 })
+            tl.fromTo(secondLayer.current, { y: '100%' }, { y: '0%', duration: 1.2 }, "-=1")
+            tl.fromTo(navRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
+        });
+
+        return () => ctx.revert()
+    }, []);
+
     
     // get models--------------------------------------//
     const [data, setData] = useState([])
@@ -29,23 +46,6 @@ const ModelsList = () => {
     const sortedModels = data?.sort((a,b) => new Date(a.date_creation) - new Date(b.date_creation))
    
 
-    const firstLayer = useRef();
-    const secondLayer = useRef();
-    const navRef = useRef();
-
-    useLayoutEffect(() => {
-        const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
-
-        let ctx = gsap.context(() => {
-            tl.fromTo(firstLayer.current, { y: '100%' }, { y: '-100%', duration: 1.2 })
-            tl.fromTo(secondLayer.current, { y: '100%' }, { y: '0%', duration: 1.2 }, "-=1")
-            tl.fromTo(navRef.current, { opacity: 0 }, { opacity: 1, duration: 1 })
-        });
-
-        return () => ctx.revert()
-    }, []);
-
-
 
     return (
         <div className='bg-[#090909]  pb-6'>
@@ -57,7 +57,7 @@ const ModelsList = () => {
 
                 <nav ref={navRef} className='flex items-center justify-between px-4 md:px-0 pt-4'>
                     <Link to='/'>
-                        <img src={logo} alt='logo' className='w-28 md:w-32 hover:opacity-80 duration-300' />
+                        <img src={logo} alt='logo' loading='lazy' className='w-28 md:w-32 hover:opacity-80 duration-300' />
                     </Link>
 
                     <svg version="1.1" viewBox="0 0 26 26" className='w-8 h-8 cursor-pointer hover:opacity-80 duration-500'>
