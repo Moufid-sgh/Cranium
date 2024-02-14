@@ -63,7 +63,7 @@ function ModelOverview({ el, setModelOn }) {
          onMouseDown={e => mouseDownCoords(e)}  
          onClick={handleImageClick}> 
 
-      <div className='model h-[600px] lg:h-[470px] flex justify-center items-center w-full relative overflow-hidden invisible cursor-pointer active:cursor-grab' ref={containerRef}>
+      <div className='h-[600px] lg:h-[470px] flex justify-center items-center w-full relative overflow-hidden cursor-grab invisible' ref={containerRef}>
         <img src={el} loading="lazy" alt='skull' ref={imgRef} />
       </div>
 

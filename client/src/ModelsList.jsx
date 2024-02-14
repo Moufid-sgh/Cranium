@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import Model from './component/Model';
 import ErrorBoundary from './component/ErrorBoundary';
 import { Loader } from './component/Functions/Loader';
-import logo from '/white_logo.png';
+import logo from '/white_logo.webp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 

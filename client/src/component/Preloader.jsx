@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import logo from '/white_logo.png';
+import logo from '/white_logo.webp';
 
 
 const Preloader = () => {
