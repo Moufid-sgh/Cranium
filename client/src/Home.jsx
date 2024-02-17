@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { SmoothScroll } from "./component/Functions/SmoothScroll";
 import Navbar from './component/Navbar';
 import Hero from "./component/Hero";
 import ModelSection from './component/ModelSection';
@@ -7,14 +5,6 @@ import Contact from './component/Contact';
 import Testimonial from './component/Testimonial';
 
 const Home = () => {
-
-
-  //---smooth scroll-----------------------//
-  useEffect(() => {
-
-    SmoothScroll()
-
-  }, []);
 
 
     return (
